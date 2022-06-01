@@ -4,17 +4,8 @@ public class Leaks {
     public static void main(String[] args) {
         new Thread(() -> {
             for (var i = 0; i < 100_000; ++i) {
-                LeakThroughThreadLocals t = null;
-                try {
-                    t = new LeakThroughThreadLocals(i);
-                    t.printId();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    System.exit(1);
-                } finally {
-                    if (t != null) t.getThreadLocal().remove();
-                    else System.out.println("t == null");
-                }
+                var t = new LeakThroughThreadLocals(i);
+                t.printId();
             }
         }).start();
     }

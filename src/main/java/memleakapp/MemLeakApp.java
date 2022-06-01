@@ -2,6 +2,7 @@ package memleakapp;
 
 import equals.People;
 import equals.Person;
+import unclosed.LeaksExamples;
 
 
 /*
@@ -25,6 +26,12 @@ public class MemLeakApp {
         var newPerson = new Person(person);
         People.addPerson(newPerson);
         People.count();
+
+        LeaksExamples.getListOfIntsCorrect().forEach(es -> {
+            System.out.print("Array: ");
+            for (var element: es) System.out.print(element + " ");
+            System.out.println();
+        });
 
         var array = new int[3];
         System.out.println(array[3]);

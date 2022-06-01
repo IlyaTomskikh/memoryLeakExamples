@@ -22,7 +22,7 @@ public class LeaksExamples {
         for (var i = 0; i < n / 2; ++i) firstArray[i] *= firstArray[n - 1 - i];
         var secondArray = new int[n];
         for (var i = 0; i < n; ++i) secondArray[i] = scanner.nextInt() + firstArray[n - 1 - i] / 5;
-        scanner.close();
+        //scanner.close();
         var sumOfTwoArrays = new int[n];
         for (var i = 0; i < n; ++i) sumOfTwoArrays[i] = firstArray[i] + secondArray[n - 1 - i];
         var list = new ArrayList<int[]>();
